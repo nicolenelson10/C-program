@@ -1,11 +1,15 @@
-#include<stdio.h>
-int main(){
-  printf("Size of integer=%ld",sizeof(int));
-  printf("\nsize of long integer=%ld",sizeof(long int));
-  printf("\nsize of short integer=%ld",sizeof(short int));
-  printf("\nsize of float=%ld",sizeof(float));
-  printf("\nsize of double=%ld",sizeof(double));
-  }
-  
-  
-
+#include <stdio.h>
+int main() {
+    FILE *fp;
+    int wordcount=0;
+    fp=fopen("input.txt","r");
+    char ch;
+    while(fscanf(fp,"%c",&ch)==1){
+        if(ch == ' ' || ch == '.'){
+            wordcount++; 
+        }
+    }
+    printf("word count=%d",wordcount);
+    fclose(fp);
+    return 0;
+}
